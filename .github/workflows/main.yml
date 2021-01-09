@@ -82,7 +82,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@${{ secrets.DIGITAL_OCEAN_IP_ADDRESS }} << 'ENDSSH'
             cd /app
             source .env
-            docker login docker.pkg.github.com -u garyjs -p ad9ab2c7e0345a905038452b336c23d4f1508a32
+            docker login docker.pkg.github.com -u garyjs -p ${{ secrets.GITHUBKEY }}
             docker pull $WEB_IMAGE
             docker pull $NGINX_IMAGE
             docker-compose -f docker-compose.prod.yml up -d
